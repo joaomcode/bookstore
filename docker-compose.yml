@@ -1,0 +1,52 @@
+# Use root/example as user/password credentials
+version: '3.1'
+
+services:
+
+    mongo:
+        image: mongo
+        restart: always
+        ports:
+            - 27017:27017
+        container_name: mongo
+        volumes:
+            - volume_meu_volume:/data/db
+        environment:
+            MONGO_INITDB_ROOT_USERNAME: root
+            MONGO_INITDB_ROOT_PASSWORD: example
+
+    mongo-express:
+        image: mongo-express
+        restart: always
+        ports:
+            - 8081:8081
+        environment:
+            ME_CONFIG_MONGODB_ADMINUSERNAME: root
+            ME_CONFIG_MONGODB_ADMINPASSWORD: example
+            ME_CONFIG_MONGODB_URL: mongodb://root:example@mongo:27017/
+
+volumes:
+    volume_meu_volume:
+
+#     demo-app:
+#         build:
+#             context: .
+#             dockerfile: Dockerfile
+#         depends_on:
+#             - mongo
+#         volumes:
+#             #Use the local app folder, but use a named volume for node_modules. This avoids conflicts with the local system.
+#             - ./:/src
+#         ports:
+#             - 8888:8888
+#         environment:
+#             - NODE_ENV=production
+#             - PORT=8888
+#             - app_jwtPrivateKey=testPrivateKey
+#             - app_mongodbUrl=mongodb://admin:password@mongo:27017/defaultDB
+#         command: "npm start"
+
+# volumes:
+#     #Configure shared volumes to be used in the services above.
+#     mongo-db:
+#     mongo-configdb:

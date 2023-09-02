@@ -1,0 +1,23 @@
+{
+    "books": [
+        {
+            "id": "a77401c6-62aa-4cbf-93bf-b2e9578ede1a",
+            "title": "Harry Potter",
+            "publisher": "Rocco",
+            "website": "https: //i.imgur.com/UH3IPXw.jpg",
+            "authors": [
+                "JK Rowling",
+                "..."
+            ]
+        },
+        {
+            "id": "29536783-f6d0-4201-9c9d-654e3d8de259",
+            "title": "sophie's World",
+            "publisher": "Coffebuz",
+            "website": "https://imgur.com/gallery/ZaXspTN",
+            "authors": [
+                "Jostein Gaarder"
+            ]
+        }
+    ]
+}
